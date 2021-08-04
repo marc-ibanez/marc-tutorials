@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+    <html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!--==================== UNICONS ====================-->
+        <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+        
+        <!--==================== SWIPER CSS ====================-->
+        <link rel="stylesheet" href="/assets/css/swiper-bundle.min.css">
+        
+        <!--==================== CSS ====================-->
+        <link rel="stylesheet" href="/assets/css/styles.css">
+        <link rel="stylesheet" href="/tutorials/ubuntu/lamp/css/lamp.css">
+
+        <title>Install Lamp | Marc Ibañez</title>
+    </head>
+    <body>
+        <!--==================== HEADER ====================-->
+        <header class="header" id="header">
+            <nav class="nav container">
+                <a href="/my-website.html#home" class="nav__logo">Marc Ibañez</a>
+
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list grid">
+                        <li class="nav__item">
+                            <a href="/my-website.html#home" class="nav__link active-link">
+                                <i class="uil uil-estate nav__icon"></i> My WebSite
+                            </a>
+                        </li>                        
+                                               
+                        <li class="nav__item">
+                            <a href="/tutorials/main/main.html" class="nav__link">
+                                <i class="uil uil-book-open nav__icon"></i> All Tutorials
+                            </a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="/my-website.html#contact" class="nav__link">
+                                <i class="uil uil-message nav__icon"></i> Contactme
+                            </a>
+                        </li>
+                    </ul>
+                    <i class="uil uil-times nav__close" id="nav-close"></i>
+                </div>
+
+                <div class="div nav__btns">
+                    <!-- Theme change button -->
+                    <i class="uil uil-moon change-theme" id="theme-button"></i>
+
+                    <div class="nav__toggle" id="nav-toggle">
+                        <i class="uil uil-apps"></i>
+                    </div>
+                </div>
+            </nav>            
+        </header>
+
+        <!--======================INTRODUCTION===================-->
+        <section class="intro section" id="intro">
+            <h1 class="intro__title">How to install Linux, Apache, MySQL and PHP stack (LAMP) on Ubuntu 20.04</h1>
+            
+            <h2 class="section__title2">Introduction</h2>
+            <span class="section__subtitle2">Requirements</span>
+
+            <div class="intro__container">
+                <img src="" alt="" class="intro__img">
+                <div class="intro__data">
+                    <p class="intro__description">We will need an <b>Ubuntu 20.04</b>, Internet connection and finally have access to the <b>root user</b>.</p>
+                    <div class="intro__info">
+                        <div class="step1">
+                            <h1 class="step1__title">Step 1: Install Apache</h1>
+                            <div class="content1">
+                                <div class="commands1">
+                                    <p><span class="color">sudo apt</span> update</p>
+                                    <p><span class="color">sudo apt install</span> apache2</p>
+                                </div>
+                                <p class="step1__description" ><span class="color2">·</span>It will ask you to enter your root password, finally you will have to put <span class="color">"Y"</span>, then press <span class="color">"Enter"</span>.</p>
+                                <p class="step1__description2"><span class="color2">·</span>You can run a quick check to check that everything went as planned by going to the server's IP address in your web browser</p>
+                                <div class="commands1_2">
+                                    <p>http://<span class="color">your_server_ip</span></p>
+                                </div> 
+                                <p class="step1__description3"><span class="color2">·</span>You will see the default Apache web page for <span class="color">Ubuntu 20.04</span>:</p>
+                                <div class="img">
+                                    <img class="photo__apache" src="/tutorials/ubuntu/lamp/apache.png" alt="apache">
+                                </div>    
+                                                           
+                            </div>
+                        </div>
+                        <div class="step2">
+                            <h1 class="step2__title">Step 2: Install MySQL</h1>
+                            <div class="content2">
+                                <p class="step2__description"><span class="color2">·</span>Now we will install the database system, we install MySQL, which is a database administration system:</p>
+                                <div class="commands2">
+                                    <p><span class="color">sudo apt install</span> mysql-server</p>
+                                </div>
+                                <p class="step2__description"><span class="color2">·</span>When prompted, confirm the installation by typing <span class="color">Y</span> and then <span class="color">ENTER</span>.</p>
+                                <p class="step2__description2"><span class="color2">·</span>When installation is complete, it is recommended to run a security script that comes pre-installed in MySQL. This script will remove some unsafe defaults and block access to your database system. Start the interactive script by running the following:</p>
+                                <div class="commands2_2">
+                                    <p><span class="color">sudo</span> mysql_secure_installation</p>
+                                </div>
+                                <div class="img__mysql1">
+                                    <img class="mysql1" src="/tutorials/ubuntu/lamp/mysql-1.jpg" alt="MYSQL INSTALLATION">
+                                </div>
+                                <p class="step2__description2"><span class="color2">·</span>We will give <span class="color">"Y"</span>, and we will put our password for MYSQL.
+                                    And we will select the security option that we like. It can be <span class="color">"0"</span>, <span class="color">"1"</span> or <span class="color">"2"</span>.</p>                               
+                                <div class="img__mysql1">
+                                    <img class="mysql2" src="/tutorials/ubuntu/lamp/mysql-2.jpg" alt="MYSQL INSTALLATION">
+                                </div>
+                                                                 
+                                <p class="step2__description2"><span class="color2">·</span>Now we can give everything yes by putting the <span class="color">"Y"</span> key.</p>
+
+                            </div>
+                        </div>
+                        <div class="step3">
+                            <h1 class="step3__title">Step 3: Install PHP</h1>
+                            <div class="content3">
+                                <p><span class="color2">·</span>PHP is the component of our configuration that will process the code to display dynamic content to the end user. 
+                                In addition to the php package, you will need <span class="color">php-mysql</span>, a PHP module that allows PHP to communicate with MySQL-based databases. 
+                                You will also need <span class="color">libapache2-mod-php</span> to enable Apache to manage PHP files. The basic PHP packages will be installed automatically as dependencies.
+                                </p>
+                                <p><span class="color2">·</span>To install these packages, run the following:</p>
+                                <div class="commands3">
+                                    <p><span class="color">sudo apt install</span> php libapache2-mod-php php-mysql</p>
+                                </div>
+                                <p><span class="color2">·</span>Once the installation is complete, you can run the following command to confirm your PHP version:</p>
+                                <div class="commands3">
+                                    <p>php<span class="color">-v</span></p>
+                                </div>
+                                
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            
+        </section>
+       
+        <!--==================== FOOTER ====================-->
+	<footer class="footer">
+		<div class="footer__bg">
+			<div class="footer__container container grid">
+				<div>
+					<h1 class="footer__title">Marc</h1>
+					<span class="footer__subtitle">Student & Systems Technician</span>
+				</div>
+
+				<ul class="footer__links">
+					<li>
+						<a href="/my-website.html#services" class="footer__link">Services</a>
+					</li>
+					<li>
+						<a href="/tutorials/main/main.html" class="footer__link">Tutorials</a>
+					</li>
+					<li>
+						<a href="/my-website.html#contact" class="footer__link">Contactme</a>
+					</li>
+				</ul>
+
+				<div class="footer__socials">
+					<a href="#" class="footer__social" target="_blank">
+						<i class="uil uil-facebook-f"></i>
+					</a>
+					<a href="https://instagram.com/markus_kickbox" class="footer__social" target="_blank">
+						<i class="uil uil-instagram"></i>
+					</a>
+					<a href="#" class="footer__social" target="_blank">
+						<i class="uil uil-twitter-alt"></i>
+					</a>
+				</div>
+			</div>
+			<p class="footer__copy">&#169; Marc Ibañez. All right reserved</p>
+		</div>
+		
+		
+	</footer>
+        <!--==================== SCROLL TOP ====================-->
+        <a href="#" class="scrollup" id="scroll-up">
+            <i class="uil uil-arrow-up scrollup__icon"></i>
+        </a>
+
+        <!--==================== SWIPER JS ====================-->
+        <script src="/assets/js/swiper-bundle.min.js"></script>
+
+        <!--==================== MAIN JS ====================-->
+        <script src="/assets/js/tutorials.js"></script>
+
+    </body>
+    </html>
